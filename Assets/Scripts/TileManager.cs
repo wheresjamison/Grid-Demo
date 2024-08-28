@@ -9,16 +9,28 @@ using UnityEngine.UIElements;
 
 public class TileManager : MonoBehaviour
 {
-    //public Vector3 tilePosition = new Vector3();
+    public GridManager gm;
 
     public void Start()
     {
         //tilePosition = transform.position;
         Debug.Log("TileManager.cs: " + name + " -> " + transform.position.ToString());
+        gm = FindAnyObjectByType<GridManager>();
+        AddTileToGrid();
     }
 
     public Vector3 GetPosition()
     {
         return transform.position;
+    }
+
+    public void ReportTileInformation()
+    {
+
+    }
+
+    public void AddTileToGrid()
+    {
+        gm.AddTileToList(this.gameObject);
     }
 }
